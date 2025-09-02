@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+}
+body.action{
+    background-color: white;
+    color: white;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px;
+    align-items: center;
+    background-color: rgb(35, 59, 60);
+}
+#log-btn{
+    background-color: coral;
+    color: white;
+    width:120px;
+    border-radius: 30px;
+    font-size: 17px;
+    height: 40px;
+    cursor: pointer;
+}
+.todo-container{
+    width: 550px;
+    height: 500px;
+    background-color: rgb(33, 45, 41);
+    margin-left: 30%;
+    margin-top: 10px;
+    padding: 6px;
+    overflow-y: scroll;
+    behavior: smooth;
+    border-radius: 15px;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+form{
+      position: relative;
+}
+input{
+    width:85%;
+    height: 45px;
+    background-color: transparent;
+    font-size: 18px;
+    color: white;
+}
+input::placeholder{
+    margin-left: 8px;
+    color: white;
+}
+button{
+    height:45px;
+    width:70px;
+    cursor: pointer;
+    color: white;
+    background-color: darkorchid;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+.result{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.todo{
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    padding: 6px;
+}
+#delete{
+    width: 60px;
+    height: 37px;
+    background-color: crimson;
+}
+#edit{
+    width: 60px;
+    height: 37px;
+    background-color: darkgreen;
+}
+
+#update-btn{
+    display: none;
+    background-color: darkgreen;
+    color: white;
+    position: absolute;
+    top: 1px;
+    right: 3px;
+}
+#btn{
+    position: absolute;
+    top: 1px;
+    right: 3px;
+}
+
+#toggleBtn{
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+}
+.todo-container.action{
+    background-color: rgb(4, 21, 52);
+    color: azure;
+}
