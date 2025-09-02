@@ -11,6 +11,23 @@ body{
     align-items: center;
     min-height: 100vh;
 }
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./How-To-Blur-Background-On-iPhone.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(10px);  /* 👈 sirf yaha blur hoga */
+    z-index: -1;        /* content ke peeche rahega */
+}
+
+
 .container{
     width: 450px;
     background-color: rgba(39, 38, 38,0.7);

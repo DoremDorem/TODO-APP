@@ -1,116 +1,228 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    background-color: black;
-    color: white;
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
 }
-body.action{
-    background-color: white;
-    color: white;
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/gradient-blur-background-free-png.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: blur(19px);
+  z-index: -1;
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 13px;
-    align-items: center;
-    background-color: rgb(35, 59, 60);
+
+/* Dark mode active */
+body.action {
+  background-color: white;
+  color: white;
 }
-#log-btn{
-    background-color: coral;
-    color: white;
-    width:120px;
-    border-radius: 30px;
-    font-size: 17px;
-    height: 40px;
-    cursor: pointer;
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;   /* mobile ke liye break ho sake */
+  gap: 10px;
+  padding: 13px;
+  background-color: rgb(35, 59, 60);
 }
-.todo-container{
-    width: 550px;
-    height: 500px;
-    background-color: rgb(33, 45, 41);
-    margin-left: 30%;
-    margin-top: 10px;
-    padding: 6px;
-    overflow-y: scroll;
-    behavior: smooth;
-    border-radius: 15px;
+
+#log-btn {
+  background-color: coral;
+  color: white;
+  width: 120px;
+  border-radius: 30px;
+  font-size: 16px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
 }
-::-webkit-scrollbar{
-    display: none;
+
+/* ===== TODO CONTAINER ===== */
+.todo-container {
+  width: 100%;
+  max-width: 550px;
+  height: 500px;
+  background-color: rgb(33, 45, 41);
+  margin: 10px auto;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 15px;
 }
-form{
-      position: relative;
+
+::-webkit-scrollbar {
+  display: none;
 }
-input{
-    width:85%;
-    height: 45px;
-    background-color: transparent;
-    font-size: 18px;
-    color: white;
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  width: 100%;
 }
-input::placeholder{
-    margin-left: 8px;
-    color: white;
+
+input {
+  flex: 1;
+  min-height: 45px;
+  height: 3rem;
+  background-color: transparent;
+  font-size: 1rem;
+  color: white;
+  border: 1px solid #777;
+  border-radius: 6px;
+  padding: 0 10px;
 }
-button{
-    height:45px;
-    width:70px;
-    cursor: pointer;
-    color: white;
-    background-color: darkorchid;
-    border: none;
-    outline: none;
-    border-radius: 6px;
+
+input::placeholder {
+  color: white;
 }
-.result{
-    width: 100%;
-    display: flex;
+
+button {
+  min-height: 45px;
+  height: 3rem;
+  min-width: 70px;
+  cursor: pointer;
+  color: white;
+  background-color: darkorchid;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* ===== RESULT ===== */
+.result {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  background-color: black;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.todo h4 {
+  flex: 1;
+  word-break: break-word;
+}
+
+#delete, #edit {
+  width: 60px;
+  height: 37px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#delete {
+  background-color: crimson;
+}
+
+#edit {
+  background-color: darkgreen;
+}
+
+#update-btn {
+  display: none;
+  background-color: darkgreen;
+  color: white;
+  position: absolute;
+  top: 1px;
+  right: 3px;
+}
+
+#toggleBtn {
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  border: 1px solid white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Dark mode container */
+.todo-container.action {
+  background-color: rgb(4, 21, 52);
+  color: azure;
+}
+
+#search{
+    width: 300px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  #log-btn {
+    width:100%;
+    margin-top: 20px;
+  }
+  #toggleBtn{
+    width: 100%;
     margin-top: 10px;
+  }
+  #search{
+    width: 100%;
+  }
+  h2{
+    text-align: center;
+  }
+
+  form {
+    flex-direction: row;
+  }
+
+  input, button {
+    height: 3.2rem;
+    font-size: 1rem;
+  }
 }
-.todo{
-    display: flex;
-    justify-content: space-between;
-    gap: 6px;
-    background-color: black;
-    color: white;
+
+@media (max-width: 480px) {
+  input, button {
+    height: 3.5rem;
+    font-size: 1.1rem;
+  }
+
+  .todo {
+    flex-direction: row;
     align-items: center;
-    padding: 6px;
-}
-#delete{
-    width: 60px;
-    height: 37px;
-    background-color: crimson;
-}
-#edit{
-    width: 60px;
-    height: 37px;
-    background-color: darkgreen;
-}
+  }
 
-#update-btn{
-    display: none;
-    background-color: darkgreen;
-    color: white;
-    position: absolute;
-    top: 1px;
-    right: 3px;
-}
-#btn{
-    position: absolute;
-    top: 1px;
-    right: 3px;
-}
-
-#toggleBtn{
-    background-color: black;
-    color: white;
-    border-radius: 6px;
-}
-.todo-container.action{
-    background-color: rgb(4, 21, 52);
-    color: azure;
+  #delete, #edit {
+    flex: none;
+    width: 55px;
+    font-size: 13px;
+  }
 }

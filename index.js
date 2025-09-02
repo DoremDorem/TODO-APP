@@ -21,16 +21,28 @@ signupForm.onsubmit=(e)=>{
                 signupBtn.innerHTML="Signup";
                 allSignupData.push(data);
                 localStorage.setItem("allSignupData",JSON.stringify(allSignupData))
-                alert("signup success");
                 signupForm.reset("");
+                iziToast.success({
+                    title: 'Success',
+                    message: 'registeration successfully done!',
+                    position: 'topRight' // topRight, bottomRight, bottomLeft, center
+                });
             },3000)
         }
         else{
-            alert("user already exist")
+           iziToast.warning({
+            title: 'Error',
+            message: 'User already Exist!',
+            position: 'topRight' // topRight, bottomRight, bottomLeft, center
+        });
         }
     }
     else{
-        alert("please fill all the fields")
+        iziToast.error({
+            title: 'Error',
+            message: 'All field is required!',
+            position: 'topRight' // topRight, bottomRight, bottomLeft, center
+        });
     }
     
     

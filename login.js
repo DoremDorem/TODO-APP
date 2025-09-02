@@ -17,18 +17,30 @@ loginForm.onsubmit=(e)=>{
           if(checkPassword!==undefined){
               loginBtn.innerHTML="please wait....."
               setTimeout(()=>{
-                 loginBtn.innerHTML="Login"
+                  loginBtn.innerHTML="Login"
                   window.location.href="http://127.0.0.1:5500/todoApp/index.html";
                   sessionStorage.setItem("user",JSON.stringify(checkEmail));
               },3000) 
           }
           else{
-            alert("Invalid credentials")
+            iziToast.error({
+            title: 'Error',
+            message: 'invalid credentials',
+            position: 'topRight' // topRight, bottomRight, bottomLeft, center
+        });
           }
        }else{
-        alert("invalid credentials")
+        iziToast.error({
+            title: 'Error',
+            message: 'invalid credentials',
+            position: 'topRight' // topRight, bottomRight, bottomLeft, center
+        });
        }
     }else{
-        alert("all field is mandatory")
+        iziToast.error({
+            title: 'Error',
+            message: 'All field is required!',
+            position: 'topRight' // topRight, bottomRight, bottomLeft, center
+        });
     }
 }
